@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="flickrImageCell" rowHeight="137" id="n2Z-NY-thU" customClass="ACFlickrFeedCell" customModule="Flickr" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n2Z-NY-thU" id="BZu-e1-jiQ">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="199.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xan-BU-Rof">
+                        <rect key="frame" x="0.0" y="15" width="320" height="169"/>
+                        <animations/>
+                    </imageView>
+                    <view clipsSubviews="YES" alpha="0.40000000000000002" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yiA-az-bYZ">
+                        <rect key="frame" x="0.0" y="16" width="320" height="169"/>
+                        <animations/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VhJ-Be-BHe">
+                        <rect key="frame" x="28" y="160" width="42" height="21"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="284" id="uin-ny-RBg"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="xan-BU-Rof" secondAttribute="trailing" constant="-8" id="4s8-gg-lKo"/>
+                    <constraint firstItem="xan-BU-Rof" firstAttribute="top" secondItem="BZu-e1-jiQ" secondAttribute="topMargin" constant="7" id="6hf-dg-dsf"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="VhJ-Be-BHe" secondAttribute="bottom" constant="10" id="7Tv-yf-oIA"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="xan-BU-Rof" secondAttribute="bottom" constant="7" id="9el-sU-Clq"/>
+                    <constraint firstItem="yiA-az-bYZ" firstAttribute="width" secondItem="xan-BU-Rof" secondAttribute="width" id="AQy-Cf-Yf2"/>
+                    <constraint firstItem="yiA-az-bYZ" firstAttribute="height" secondItem="xan-BU-Rof" secondAttribute="height" id="EKw-Ue-zfb"/>
+                    <constraint firstItem="yiA-az-bYZ" firstAttribute="centerX" secondItem="xan-BU-Rof" secondAttribute="centerX" id="QOM-oc-Dkr"/>
+                    <constraint firstItem="VhJ-Be-BHe" firstAttribute="leading" secondItem="BZu-e1-jiQ" secondAttribute="leadingMargin" constant="20" id="dNW-bN-Cpb"/>
+                    <constraint firstItem="yiA-az-bYZ" firstAttribute="leading" secondItem="VhJ-Be-BHe" secondAttribute="trailing" constant="-20" id="fLP-io-I3b"/>
+                    <constraint firstItem="yiA-az-bYZ" firstAttribute="centerY" secondItem="xan-BU-Rof" secondAttribute="centerY" id="gdj-vc-Byh"/>
+                    <constraint firstItem="xan-BU-Rof" firstAttribute="leading" secondItem="BZu-e1-jiQ" secondAttribute="leadingMargin" constant="-8" id="hlm-P5-mWp"/>
+                    <constraint firstItem="yiA-az-bYZ" firstAttribute="top" secondItem="VhJ-Be-BHe" secondAttribute="bottom" constant="-94" id="upI-cW-cVJ"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="fLP-io-I3b"/>
+                        <exclude reference="upI-cW-cVJ"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <animations/>
+            <color key="backgroundColor" red="0.93621045620379462" green="0.93836805555555558" blue="0.93420024611079178" alpha="1" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="flickrPhoto" destination="xan-BU-Rof" id="PXa-ev-qPP"/>
+                <outlet property="photoTitle" destination="VhJ-Be-BHe" id="ngL-7c-qUO"/>
+            </connections>
+            <point key="canvasLocation" x="675" y="154"/>
+        </tableViewCell>
+    </objects>
+</document>
