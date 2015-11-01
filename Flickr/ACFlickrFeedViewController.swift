@@ -11,6 +11,7 @@ import UIKit
 class ACFlickrFeedViewController: UITableViewController
 {
     var postsArray = Array<ACPost>()
+    var pageOffset : Int = 2
 
     override func viewDidLoad()
     {
@@ -71,6 +72,25 @@ class ACFlickrFeedViewController: UITableViewController
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("flickrImageCell", forIndexPath: indexPath) as! ACFlickrFeedCell
+        
+        if ( indexPath.row == (postsArray.count - 1) )
+        {
+            ACPostsManager.uploadPosts(10, offset: self.pageOffset, success: { ( array ) -> Void in
+                print("current \(self.pageOffset)")
+                self.pageOffset = ++self.pageOffset
+                self.postsArray.appendContentsOf(array)
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    
+                    self.tableView.reloadData()
+                    
+                })
+                
+                
+                }) { () -> Void in
+                    
+            }
+        }
         
 
 //        let photoName = postsArray[indexPath.row].postTitle
