@@ -13,6 +13,7 @@ class ACFlickrFeedCell: UITableViewCell
 
     @IBOutlet weak var flickrPhoto: UIImageView!
     @IBOutlet weak var photoTitle: UILabel!
+    @IBOutlet weak var star: UIImageView!
     weak var internetTask : NSURLSessionDataTask?
     
     override func awakeFromNib()
@@ -57,6 +58,16 @@ extension ACFlickrFeedCell
         }
 
         photoTitle.text = postModel.postTitle
+        
+        // Проверяем стоит ли тру в параметре избранного
+        if ( postModel.isBookmarked == true)
+        {
+            star.image = UIImage ( named: "star")
+        }
+        else
+        {
+            star.image = nil
+        }
         
     }
 }

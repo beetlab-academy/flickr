@@ -12,6 +12,7 @@ class ACFlickrFeedViewController: UITableViewController
 {
     var postsArray = Array<ACPost>()
     var pageOffset : Int = 2
+    weak var currentPost : ACPost?
 
     override func viewDidLoad()
     {
@@ -38,6 +39,8 @@ class ACFlickrFeedViewController: UITableViewController
 //            }) { () -> Void in
 //            
 //        }
+        NSNotificationCenter.defaultCenter().addObserver(self.tableView, selector: "reloadData", name: "reloadTable", object: nil)
+        // функция сработает, как только в эфире появится информация о "reloadData"
     }
 
     override func didReceiveMemoryWarning()
@@ -66,11 +69,12 @@ class ACFlickrFeedViewController: UITableViewController
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("flickrImageCell", forIndexPath: indexPath) as! ACFlickrFeedCell // Передаем в cell адрес нужной клетки формата flickrFeedCell
         
-        if ( indexPath.row == (postsArray.count - 1) )
+        // Реализация бесконечного скроллинга
+        if ( indexPath.row == (postsArray.count - 1) && 10*(self.pageOffset - 1) == postsArray.count )
         {
             ACPostManager.uploadPosts(10, offset: self.pageOffset, success: { ( array ) -> Void in
                 print("current \(self.pageOffset)")
-                self.pageOffset = ++self.pageOffset
+                
                 self.postsArray.appendContentsOf(array)
                 
                 dispatch_async(dispatch_get_main_queue(), {
@@ -83,6 +87,8 @@ class ACFlickrFeedViewController: UITableViewController
                 }) { () -> Void in
                     
             }
+            
+            self.pageOffset = ++self.pageOffset
         }
         
         cell.configureSelfWithModel(postsArray[indexPath.row])
@@ -91,8 +97,10 @@ class ACFlickrFeedViewController: UITableViewController
         return cell
     }
 
+    // Реализация открывания наезжающего push окна с сигвеем "showDetail"
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
+        currentPost = postsArray[indexPath.row]
         self.performSegueWithIdentifier("showDetail", sender: tableView)
     }
 
@@ -131,14 +139,16 @@ class ACFlickrFeedViewController: UITableViewController
     }
     */
 
-    /*
+
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        let destinationController = segue.destinationViewController as! ACPushWindow
+        destinationController.postToDisplay = currentPost
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+
 
 }

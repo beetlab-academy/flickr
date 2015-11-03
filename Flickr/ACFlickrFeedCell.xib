@@ -20,42 +20,61 @@
                     </imageView>
                     <view clipsSubviews="YES" alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WtF-1Y-VMv">
                         <rect key="frame" x="0.0" y="15" width="320" height="169"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AvT-WL-dvf">
-                                <rect key="frame" x="20" y="138" width="42" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="AvT-WL-dvf" firstAttribute="leading" secondItem="WtF-1Y-VMv" secondAttribute="leading" constant="20" id="EHj-Nq-LFE"/>
-                            <constraint firstAttribute="bottom" secondItem="AvT-WL-dvf" secondAttribute="bottom" constant="10" id="VLB-oG-P4M"/>
-                        </constraints>
                     </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="sph-ET-Xg6">
+                        <rect key="frame" x="282" y="28" width="20" height="20"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="fyX-FD-2Sw"/>
+                            <constraint firstAttribute="height" constant="20" id="hm7-au-E1j"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AvT-WL-dvf">
+                        <rect key="frame" x="139" y="153" width="42" height="21"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="4rr-PD-3Hr"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <animations/>
                 <constraints>
                     <constraint firstItem="NFz-Ze-fn0" firstAttribute="leading" secondItem="OFC-eo-IrE" secondAttribute="leadingMargin" constant="-8" id="4al-kK-iAt"/>
+                    <constraint firstItem="AvT-WL-dvf" firstAttribute="centerY" secondItem="WtF-1Y-VMv" secondAttribute="centerY" id="6v0-t4-pXo"/>
+                    <constraint firstItem="sph-ET-Xg6" firstAttribute="top" secondItem="OFC-eo-IrE" secondAttribute="topMargin" constant="20" id="8MO-Mx-mz0"/>
+                    <constraint firstItem="AvT-WL-dvf" firstAttribute="bottom" secondItem="WtF-1Y-VMv" secondAttribute="bottom" constant="-10" id="Tul-fK-w4b"/>
                     <constraint firstItem="WtF-1Y-VMv" firstAttribute="width" secondItem="NFz-Ze-fn0" secondAttribute="width" id="cJZ-ju-uFO"/>
+                    <constraint firstItem="AvT-WL-dvf" firstAttribute="centerX" secondItem="WtF-1Y-VMv" secondAttribute="centerX" id="eki-bC-HDc"/>
                     <constraint firstAttribute="trailingMargin" secondItem="NFz-Ze-fn0" secondAttribute="trailing" constant="-8" id="h7G-CH-DXD"/>
                     <constraint firstAttribute="bottomMargin" secondItem="NFz-Ze-fn0" secondAttribute="bottom" constant="7" id="j2E-7X-fat"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="sph-ET-Xg6" secondAttribute="trailing" constant="10" id="oE0-ng-9fH"/>
                     <constraint firstItem="WtF-1Y-VMv" firstAttribute="centerX" secondItem="NFz-Ze-fn0" secondAttribute="centerX" id="qmr-kV-e6l"/>
                     <constraint firstItem="NFz-Ze-fn0" firstAttribute="top" secondItem="OFC-eo-IrE" secondAttribute="topMargin" constant="7" id="wHw-56-RKg"/>
                     <constraint firstItem="WtF-1Y-VMv" firstAttribute="centerY" secondItem="NFz-Ze-fn0" secondAttribute="centerY" id="xsA-Qa-Ljy"/>
                     <constraint firstItem="WtF-1Y-VMv" firstAttribute="height" secondItem="NFz-Ze-fn0" secondAttribute="height" id="zx7-p1-mqP"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="6v0-t4-pXo"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <animations/>
-            <color key="backgroundColor" red="0.68835646544859619" green="0.7756668244949495" blue="0.65976881814563237" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="flickrPhoto" destination="NFz-Ze-fn0" id="wxI-Pc-2eV"/>
                 <outlet property="photoTitle" destination="AvT-WL-dvf" id="dHP-uh-arY"/>
+                <outlet property="star" destination="sph-ET-Xg6" id="SDF-M3-rEL"/>
             </connections>
             <point key="canvasLocation" x="499" y="245"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="star" width="60" height="60"/>
+    </resources>
 </document>

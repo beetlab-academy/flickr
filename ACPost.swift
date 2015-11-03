@@ -16,6 +16,7 @@ class ACPost
     var postAuthorID : String
     var mainPhotoURL : NSURL?
     var originalPhotoURL : NSURL?
+    var isBookmarked : Bool! = false
     
     
     init ( postIDValue : String , postTitleValue : String , postAuthorIDValue : String)
