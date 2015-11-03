@@ -2,8 +2,8 @@
 //  ACFlickrFeedCell.swift
 //  Flickr
 //
-//  Created by MacAdmin on 29.09.15.
-//  Copyright (c) 2015 Beet Lab. All rights reserved.
+//  Created by User on 29.09.15.
+//  Copyright © 2015 qswitch. All rights reserved.
 //
 
 import UIKit
@@ -30,27 +30,22 @@ class ACFlickrFeedCell: UITableViewCell
 
 }
 
-//MARK: процедуры конфигурации клетки
+// MARK: процедуры конфигурации клетки
+
 extension ACFlickrFeedCell
 {
-    func configureSelfWithModel ( postModel : ACPost ) -> Void
+    func configureSelfWithModel (postModel : ACPost ) -> Void
     {
-        if ( postModel.mainPhotoURL == nil )
+        
+        if ( postModel.mainPhotoURL == nil)
         {
-            internetTask = ACPostsManager.uploadPhotoURLSOfPostWithID(postModel, success: { () -> Void in
+            internetTask = ACPostManager.uploadPhotoURLSofPostWithID(postModel, success: { () -> Void in
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     
-                    let manager:SDWebImageManager = SDWebImageManager.sharedManager()
-                    manager.downloadImageWithURL(postModel.mainPhotoURL, options: SDWebImageOptions.RetryFailed, progress: nil, completed:
-                        { (image, error, ImageCacheType, succeed, url) -> Void in
-                        if (image != nil)
-                        {
-                        self.flickrPhoto.image = image
-                        }
-                    })
+                    self.flickrPhoto.pin_setImageFromURL(postModel.mainPhotoURL!)
                     
-                })
+                    })
                 
                 }) { () -> Void in
                     
@@ -58,23 +53,18 @@ extension ACFlickrFeedCell
         }
         else
         {
-            let manager:SDWebImageManager = SDWebImageManager.sharedManager()
-            manager.downloadImageWithURL(postModel.mainPhotoURL, options: SDWebImageOptions.RetryFailed, progress: nil, completed:
-                { (image, error, ImageCacheType, succeed, url) -> Void in
-                if (image != nil)
-                {
-                self.flickrPhoto.image = image
-                }
-            })
+            self.flickrPhoto.pin_setImageFromURL(postModel.mainPhotoURL!)
         }
+
         photoTitle.text = postModel.postTitle
+        
     }
 }
 
-// MARK: отмена задачи загрузки ссылок
+//MARK: Отмена задачи загрузки ссылок
+
 extension ACFlickrFeedCell
 {
-    
     override func prepareForReuse()
     {
         flickrPhoto.image = nil

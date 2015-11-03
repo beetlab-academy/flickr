@@ -1,4 +1,8 @@
-source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '7.1'
+platform :ios, "8.0"
+use_frameworks!
 
-pod 'SDWebImage'
+
+target 'Flickr' do
+pod 'PINRemoteImage'
+
+end

@@ -79,10 +79,6 @@
 		DFBDA5F52A6A5B085AB182FC /* Pods-PIRemoteImage Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PIRemoteImage Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PIRemoteImage Tests/Pods-PIRemoteImage Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E2B84DF860DF48B5B22537B6 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		E6B892907FA987D3EA61DCAC /* Pods-PINRemoteImage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PINRemoteImage.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PINRemoteImage/Pods-PINRemoteImage.debug.xcconfig"; sourceTree = "<group>"; };
-		F1B918B21BCF231700710963 /* PINRemoteImage-iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PINRemoteImage-iOS.h"; sourceTree = "<group>"; };
-		F1B918B41BCF231700710963 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F1B918BE1BCF231700710963 /* PINRemoteImage_iOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PINRemoteImage_iOSTests.m; sourceTree = "<group>"; };
-		F1B918C01BCF231700710963 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,8 +110,6 @@
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F593195388D20070C39A /* PINRemoteImage */,
 				68B5CDEE1A0BEC8C00A4BAAC /* PINRemoteImage Tests */,
-				F1B918B11BCF231700710963 /* PINRemoteImage-iOS */,
-				F1B918BD1BCF231700710963 /* PINRemoteImage-iOSTests */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
 				C9D363E7DDCEA7F35E576911 /* Pods */,
@@ -220,24 +214,6 @@
 				804862496DA4D87612F805CC /* Pods-PINRemoteImage Tests.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		F1B918B11BCF231700710963 /* PINRemoteImage-iOS */ = {
-			isa = PBXGroup;
-			children = (
-				F1B918B21BCF231700710963 /* PINRemoteImage-iOS.h */,
-				F1B918B41BCF231700710963 /* Info.plist */,
-			);
-			path = "PINRemoteImage-iOS";
-			sourceTree = "<group>";
-		};
-		F1B918BD1BCF231700710963 /* PINRemoteImage-iOSTests */ = {
-			isa = PBXGroup;
-			children = (
-				F1B918BE1BCF231700710963 /* PINRemoteImage_iOSTests.m */,
-				F1B918C01BCF231700710963 /* Info.plist */,
-			);
-			path = "PINRemoteImage-iOSTests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

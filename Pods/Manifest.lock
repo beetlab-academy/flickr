@@ -1,12 +1,20 @@
 PODS:
-  - SDWebImage (3.7.3):
-    - SDWebImage/Core (= 3.7.3)
-  - SDWebImage/Core (3.7.3)
+  - FLAnimatedImage (1.0.8)
+  - PINCache (2.1)
+  - PINRemoteImage (1.2.1):
+    - PINRemoteImage/FLAnimatedImage (= 1.2.1)
+  - PINRemoteImage/Core (1.2.1):
+    - PINCache (>= 2.1)
+  - PINRemoteImage/FLAnimatedImage (1.2.1):
+    - FLAnimatedImage (>= 1.0)
+    - PINRemoteImage/Core
 
 DEPENDENCIES:
-  - SDWebImage
+  - PINRemoteImage
 
 SPEC CHECKSUMS:
-  SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
+  FLAnimatedImage: f9422f796135aff80d8c00b2afc48015bb746e24
+  PINCache: 0581b0a7578fc0bbc6c7a8b70b0615388bea064c
+  PINRemoteImage: 7560f0c975b0495d232e954342c5f49979335015
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0

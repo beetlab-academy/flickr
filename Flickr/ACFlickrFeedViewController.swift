@@ -2,8 +2,8 @@
 //  ACFlickrFeedViewController.swift
 //  Flickr
 //
-//  Created by MacAdmin on 29.09.15.
-//  Copyright (c) 2015 Beet Lab. All rights reserved.
+//  Created by User on 29.09.15.
+//  Copyright © 2015 qswitch. All rights reserved.
 //
 
 import UIKit
@@ -16,66 +16,59 @@ class ACFlickrFeedViewController: UITableViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+       // let nib = NSBundle.mainBundle().loadNibNamed("ACFlickrFeedCell", owner: self, options: nil) [0] as! UINib
         
-        let nib = UINib ( nibName: "ACFlickrFeedCell", bundle: nil)
-        tableView.registerNib(nib , forCellReuseIdentifier: "flickrImageCell" )
+        let nib = UINib (nibName: "ACFlickrFeedCell", bundle: nil)
+        tableView.registerNib(nib, forCellReuseIdentifier: "flickrImageCell")
         
-        ACPostsManager.uploadPosts(10, offset: 0, success: { ( array ) -> Void in
+        ACPostManager.uploadPosts(10, offset: 0, success: { ( array ) -> Void in
             
                 self.postsArray.appendContentsOf(array)
-            
             dispatch_async(dispatch_get_main_queue(), {
-            
                 self.tableView.reloadData()
-            
             })
             
-            
             }) { () -> Void in
+                
                 
         }
         
-
-        ACPostsManager.uploadPhotoURLSOfPostWithID(ACPost(postIDValue: "22105823785", postTitleValue: "", postAuthorIDValue: ""), success: { () -> Void in
-            
-            }) { () -> Void in
-                
-        }
+//        ACPostManager.uploadPhotoURLSofPostWithID(ACPost(postIDValue: "22312303665", postTitleValue: "", postAuthorIDValue: ""), success: { () -> Void in
+//            
+//            }) { () -> Void in
+//            
+//        }
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    {
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
         return postsArray.count
     }
-    
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
-    {
-        return 320.0
-    }
 
+
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat // CGFloat - число с плавающей точкой формата Color Grafics (задаем высоту клетки)
+    {
+        return 220.0
+    }
+    
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCellWithIdentifier("flickrImageCell", forIndexPath: indexPath) as! ACFlickrFeedCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("flickrImageCell", forIndexPath: indexPath) as! ACFlickrFeedCell // Передаем в cell адрес нужной клетки формата flickrFeedCell
         
         if ( indexPath.row == (postsArray.count - 1) )
         {
-            ACPostsManager.uploadPosts(10, offset: self.pageOffset, success: { ( array ) -> Void in
+            ACPostManager.uploadPosts(10, offset: self.pageOffset, success: { ( array ) -> Void in
                 print("current \(self.pageOffset)")
                 self.pageOffset = ++self.pageOffset
                 self.postsArray.appendContentsOf(array)
@@ -92,23 +85,21 @@ class ACFlickrFeedViewController: UITableViewController
             }
         }
         
-
-//        let photoName = postsArray[indexPath.row].postTitle
-//        
-//        cell.photoTitle.text = photoName
-        
         cell.configureSelfWithModel(postsArray[indexPath.row])
-
-        // Configure the cell...
-
+        
+        
         return cell
     }
 
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    {
+        self.performSegueWithIdentifier("showDetail", sender: tableView)
+    }
 
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
+        // Return false if you do not want the specified item to be editable.
         return true
     }
     */
@@ -135,7 +126,7 @@ class ACFlickrFeedViewController: UITableViewController
     /*
     // Override to support conditional rearranging of the table view.
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
+        // Return false if you do not want the item to be re-orderable.
         return true
     }
     */
@@ -145,7 +136,7 @@ class ACFlickrFeedViewController: UITableViewController
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
+        // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
     */

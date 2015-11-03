@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Flickr/Flickr-Bridging-Header.h">
-   </FileRef>
-   <FileRef
       location = "group:Flickr.xcodeproj">
    </FileRef>
    <FileRef
